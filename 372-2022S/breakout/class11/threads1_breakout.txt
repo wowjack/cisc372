@@ -1,0 +1,54 @@
+
+		      Pthread Breakout Exercise
+
+Work in your personal repo, directory breakout/class11. Talk with your
+partners, share you screens, share your code.
+
+Take the hello world Pthread program (hello_pthread.c) and copy it
+into your directory (class11). Make sure you can compile it and run
+it. You don't need a Makefile, but you will see that compilers differ
+on the exact command. These days, most will let you compile a Pthread
+program just like a sequential C program --- no additional command
+line flags needed. Some compilers have wanted you to use the flag
+-pthread , others -lpthread after the list of source files.
+
+Run the program just like you would run a sequential program from the
+command line (no need to use srun or sbatch --- yet).
+
+Now make a simple modification. The program should take two inputs, n
+and m, both ints.
+
+    n = number of threads
+    m = number of iterations
+
+The main thread should iterate m times. In each iteration, it should
+create n threads, each of which prints a Hello message as before. Then
+it should join all the threads and print:
+
+          "\nMain thread: we are between iterations\n\n"
+
+Compile and run the program for different values of n and m. See if
+this primitive version of a "barrier" works for printing to stdout ---
+does the output from one iteration ever get mixed with the output from
+another? (Recall how this was a problem with printing from multiple
+MPI processes --- but now we are using threads instead of processes.)
+
+---------------------------------
+
+If you finished the previous exercise now do this: create a Pthreads
+version of perfect.c. Call it perfect_pt.c.  The number of threads
+should be another command line argument. The "work" can be distributed
+among the threads in any way you want ----- but as with the MPI
+version, which distribution method will be most effective?
+
+You will have to define a thread function that has the required
+signature:
+
+void * thread_f(void * arg) {
+  ...
+}
+
+Follow the pattern of the hello examples to pass each thread an
+integer ID, tid. The tid can play the exact same role as "rank" in the
+MPI program. Let each thread search its part of the iteration space
+for perfect numbers, and finally join them all at the end.

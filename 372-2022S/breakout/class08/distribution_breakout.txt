@@ -1,0 +1,106 @@
+
+First, introduce yourself to the students at your table.  Work
+together!
+
+Work in your personal repo, directory breakout/class08.  Talk with
+your partners, share you screens, share your code.
+
+
+1.  Standard Distribution Exercise
+
+Using the Standard Distribution Scheme, write out the distributions
+for the following values of n and p, using the format in this example:
+
+n=10, p=3:  0 1 2 | 3 4 5 | 6 7 8 9
+
+Note that the vertical bar '|' is used to separate the blocks.  There
+should always be p-1 '|'s, even if some of the blocks are empty.
+
+n=14, p=4:
+n=14, p=5:
+n=2,  p=5:
+n=3,  p=5:
+n=1,  p=4:
+n=10, p=4:
+
+Remember: first(i) = floor(n*i/p).  Save your result in file
+blocks.txt.
+
+2. Write an MPI program myblocks.c that takes any number N of command
+line arguments, all ints.  The goal is to create a block-distributed
+array of length N initialized with the given numbers.  Process 0 first
+sends to all processes the number N.  Now that each process knows N,
+each process can figure out the size of its block and allocate memory
+of that size to use as a receive buffer.  Process 0 reads the
+arguments and sends each process its block of numbers.  Finally all
+processes print their blocks as follows:
+
+  Process 3's block: 345 89 10
+  Process 0's block: -7 55
+  Process 1's block: 0 -323
+
+etc.  Note the output from the processes may be interleaved in random
+ways; this is the inevitable consequence of printing from different
+processes and is OK for this exercise.
+
+3. Repeat above except each process must allocate two ghost cells in
+its local array.  I.e., if my block with have size nl, then I will
+allocate an array of length nl+2, and my block numbers will go in
+positions 1,2,...,nl.  Positions 0 and nl+1 are used for ghost cells
+and are initialized to 0. Call this program myghosts.c.  The output
+should look like this:
+
+  Process 3's block: [0] 345 89 10 [0]
+  Process 0's block: [0] -7 55 [0]
+  Process 1's block: [0] 0 -323 [0]
+
+etc.  I.e., it is like before except the ghost cells are added and
+printed in brackets.
+
+4. Now write myexchange.c.   Start by copying myghosts.c.   Then
+add a function exchange() which does a ghost cell exchange.  Then
+print as before.   The output should look like:
+
+  Process 3's block: [44] 345 89 10 [0]
+  Process 0's block: [0] -7 55 [0]
+  Process 1's block: [55] 0 -323 [272]
+
+etc., i.e., the ghost cell should mirror the corresponding value on
+the neighboring process.
+
+
+5. (carried over from last class). Copy the directory
+372-2022S/code/src/mpi/mpianim into your class08 directory. Make sure
+you can compile and run these example programs with "make" and "make
+test". You may need to edit the ROOT value in the Makefile so that it
+points to the "code" directory in 372-2022S.
+
+The programs use the mpianim library, an MPI version of the ANIM
+library. Study stripes1.c and look at the documentation in
+372-2022S/code/include/mpianim.h to understand the API. Now, make some
+creative change to stripes1.c to get it to produce a different
+picture. Call your program my_stripes.c. Edit the Makefile so that it
+will generate my_stripes.mp4. Feel free to go wild.
+
+
+6.  [Relevant examples: stripes1.c, block1_mpi.c]
+
+Write an MPIANIM program that accepts one command line argument, a
+positive integer N.  Call the program ghostanim.c.
+
+The program will create a block distributed array of global length N,
+distributed over nprocs processes.  This will be an array of double.
+Use the Standard Block Distribution scheme.
+
+Initialize the array with the doubles 0, 1, 2, ..., N-1.
+
+Use MPIANIM to create an animation of size N x 800.  (I.e., N pixels
+in x-direction, 800 in y-direction.)  The range of values for the
+function should go from 0 to N.
+
+Write a single frame from the distributed array to the animation.
+
+Run the program with different numbers for nprocs.  In each case, save
+the .anim file and .gif file.  Use diff to compare the outputs from
+different nprocs.  If you did it correctly, the output should be
+independent of nprocs.

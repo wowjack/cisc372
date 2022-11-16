@@ -1,0 +1,25 @@
+	    Breakout for Class 21: CUDA version of perfect
+
+Work in breakout.class21.
+
+Copy the sequential program perfect.c to this directory. Your goal is
+to make a CUDA version perfect.cu. You do not need to count the total
+number of perfect numbers found, just print them out as they are
+found. Hence, this is an embarrassingly parallel problem.
+
+Your CUDA kernel will need the following information:
+
+   gridDim.x   : # blocks
+   blockIdx.x  : ID number of this block
+   blockDim.x  : # threads per block
+   threadIdx.x : local ID number of this thread within the block
+
+   gridDim.x * blockDim.x : global number of threads
+   blockDim.x * blockIdx.x + threadIdx.x : global thread ID number
+
+Once a thread knows the total number of threads and its (global) ID,
+it can go to town using the usual cyclic distribution technique.
+
+Refers to the example hello world programs for some basic templates.
+A Makefile is also provided.
+

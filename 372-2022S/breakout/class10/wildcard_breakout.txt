@@ -1,0 +1,44 @@
+
+Wildcard Breakout
+breakout/class10
+
+1. Examine wcdl.c with a partner. Run it several times with a small
+number of processes. Does it ever deadlock? With your partner, write
+an explanation of exactly what happens when the program operates
+correctly by giving a blow-by-blow account, such as:
+
+  Proc X sends Y to Z.
+  Proc Z receives Y from X.
+  ...
+
+Then write an explanation of exactly what happens when the program
+deadlocks. Put your explanation in a plain text file named wcdl.txt.
+
+2. Examine wcdl_fix.c. Run this program several times. Does it ever
+deadlock? Explain how it fixes the problem. Add your explanation to
+the same text file wcdl.txt.
+
+3. Write a manager-worker program to find prime numbers. It works like
+this: process 0 is the "manager" and all other processes are
+"workers".
+
+Each worker is an infinite loop in which it first receives, from
+manager, a single postive integer n. The worker then determines
+whether n is prime (using any method you like). It sends the result
+(yes or no) back to the manager, returns to the top of the loop and
+repeats.  When the worker sends the result back to the manager,
+it uses n for the tag.
+
+The manager (process 0) hands out "tasks" (positive integers) to the
+workers in order: 1, 2, 3, .... Once every worker has been sent a
+task, the manager waits for a response using an
+MPI_ANY_SOURCE/MPI_ANY_TAG receive. This is important: the manager
+doesn't know which worker will finish first, so it must use the
+wildcards so that it can receive a result from anyone. If the result
+is yes (the number is prime) the manager prints the prime number. In
+either case, the manager immediately sends the worker the next task.
+This repeats until some upper bound is reached.
+
+How to end gracefully: when the manager decides it's time to end,
+it can send each worker the integer -1.   When a worker sees this,
+it breaks out of its loop and terminates.

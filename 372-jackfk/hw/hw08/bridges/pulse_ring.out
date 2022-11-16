@@ -1,0 +1,10 @@
++ cd ..
++ make pulse_ring.exec
+nvcc -I../../../372-2022S/code/include -c -Xcompiler -fopenmp -O3 -o nbody.o nbody.cu
+nvcc  -I../../../372-2022S/code/include  -L../../../372-2022S/code/lib -lgomp -O3 -o pulse_ring.exec pulse_ring.c nbody.o -lanim -lm
++ cd bridges
++ ../pulse_ring.exec pulse_ring.anim
+nbody: nbodies=3775 nx=1000 ny=1000 nstep=3000 wstep=1
+nbody: creating ANIM file pulse_ring.anim with 3001 frames, 45345436 bytes.
+0%....................25%......................50%......................75%.....................100%
+nbody: finished.  Time = 9.600630

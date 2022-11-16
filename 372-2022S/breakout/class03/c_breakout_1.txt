@@ -1,0 +1,28 @@
+
+1. Write the English name of the type of x:
+
+(a) int *x[];
+(b) unsigned long (*x[])[n];
+
+2. Declare x to be a pointer to an array of doubles:
+
+
+3. Consider the following code snippet:
+
+void f(int a[1000]) {
+  ...
+}
+int b[1000];
+int main() {
+  ...
+  f(b);
+  ...
+}
+
+How many bytes of data are copied from b to a in the
+call f(b)?  Your answer should be a C expression.
+
+[To be clear: we are just asking about the interval
+that begins with the call to f and ends just after
+a is initialized, before the body of f is executed.]
+

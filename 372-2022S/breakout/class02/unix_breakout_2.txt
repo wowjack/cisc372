@@ -1,0 +1,29 @@
+
+1. Change back into directory breakout/class02 in your personal repo.
+
+2. Create a directory named ex2, add it to version control, and change into it.
+
+3. Create a new file named hi.c with these contents:
+
+#include <stdio.h>
+int main() {
+  printf("Hi there\n");
+}
+
+4. Compile the program: cc -o hi hi.c
+
+5. List the directory.  You should see a file hi.
+
+6. Ensure that anyone can execute hi.
+
+7. Execute hi: ./hi
+
+8. Put the directory containing hi in your PATH.
+
+9. Change into some other directories and type hi.
+
+   Congrats: you have extended the language of your OS!
+
+10. Commit hi.c (but not hi) to version control.
+
+Once you are done with this, move on to the third part.

@@ -1,0 +1,26 @@
+	    Breakout for Class 24: CUDA image shrinker
+
+Work in breakout/class24.
+
+Write a CUDA-C program shrink.cu that will take as input an n x m
+matrix (2-dimensional array) of floats. You may think of the matrix as
+representing a gray-scale image, where the float represents the
+intensity of a pixel in some way.
+
+Your program will output a matrix of dimensions (n/2) x (m/2), i.e.,
+with half the height and half the width of the original.  If you
+imagine the pixels in the original picture organized into 2 x 2
+blocks, then each block of 4 pixels in the original is mapped to one
+pixel in the new image.  The new pixel value is just the average of
+the original 4 values.
+
+Use a CUDA kernel to do the work.
+
+You may assume n and m are even, if it helps, and you may initialize
+the array however you like. You can refer to add2d.cu as an example.
+
+Run your program for some large values of n and m on Beowulf and/or
+Bridges-2.
+
+If time remains, generalize by allowing the user to specify a ``shrink
+factor'' instead of just 0.5=1/2.

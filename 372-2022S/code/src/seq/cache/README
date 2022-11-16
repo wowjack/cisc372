@@ -1,0 +1,6 @@
+
+These two programs illustrate the importance of cache in performance.
+Both multiply a matrix by a vector.
+The rowmaj.c version is much faster than the colmaj.c version because
+it uses caches efficiently --- this is true because in C, multidimension
+arrays are stored in row-major order.

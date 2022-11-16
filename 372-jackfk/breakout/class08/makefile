@@ -1,0 +1,3 @@
+
+%: %.c
+	mpicc -o out $<

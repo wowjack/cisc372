@@ -1,0 +1,58 @@
++ mpirun -np 2 ./hybrid.exec
+Greetings from CPU thread 6/16 of process 1/2!
+Greetings from CPU thread 1/16 of process 1/2!
+Greetings from CPU thread 7/16 of process 1/2!
+Greetings from CPU thread 3/16 of process 1/2!
+Greetings from CPU thread 8/16 of process 1/2!
+Greetings from CPU thread 5/16 of process 1/2!
+Greetings from CPU thread 4/16 of process 1/2!
+Greetings from CPU thread 9/16 of process 1/2!
+Greetings from CPU thread 11/16 of process 1/2!
+Greetings from CPU thread 12/16 of process 1/2!
+Greetings from CPU thread 15/16 of process 1/2!
+Greetings from CPU thread 0/16 of process 1/2!
+Greetings from CPU thread 13/16 of process 1/2!
+Greetings from CPU thread 14/16 of process 1/2!
+Greetings from CPU thread 10/16 of process 1/2!
+Greetings from CPU thread 2/16 of process 1/2!
+Greetings from CPU thread 1/16 of process 0/2!
+Greetings from CPU thread 2/16 of process 0/2!
+Greetings from CPU thread 0/16 of process 0/2!
+Greetings from CPU thread 4/16 of process 0/2!
+Greetings from CPU thread 8/16 of process 0/2!
+Greetings from CPU thread 5/16 of process 0/2!
+Greetings from CPU thread 9/16 of process 0/2!
+Greetings from CPU thread 7/16 of process 0/2!
+Greetings from CPU thread 6/16 of process 0/2!
+Greetings from CPU thread 10/16 of process 0/2!
+Greetings from CPU thread 11/16 of process 0/2!
+Greetings from CPU thread 12/16 of process 0/2!
+Greetings from CPU thread 14/16 of process 0/2!
+Greetings from CPU thread 15/16 of process 0/2!
+Greetings from CPU thread 13/16 of process 0/2!
+Greetings from CPU thread 3/16 of process 0/2!
+Hello from block 0, thread 0 of the GPU, called by process 0
+Hello from block 0, thread 1 of the GPU, called by process 0
+Hello from block 0, thread 2 of the GPU, called by process 0
+Hello from block 0, thread 3 of the GPU, called by process 0
+Hello from block 1, thread 0 of the GPU, called by process 0
+Hello from block 1, thread 1 of the GPU, called by process 0
+Hello from block 1, thread 2 of the GPU, called by process 0
+Hello from block 1, thread 3 of the GPU, called by process 0
+Hello from block 2, thread 0 of the GPU, called by process 0
+Hello from block 2, thread 1 of the GPU, called by process 0
+Hello from block 2, thread 2 of the GPU, called by process 0
+Hello from block 2, thread 3 of the GPU, called by process 0
+Time: 0.220297
+Hello from block 0, thread 0 of the GPU, called by process 1
+Hello from block 0, thread 1 of the GPU, called by process 1
+Hello from block 0, thread 2 of the GPU, called by process 1
+Hello from block 0, thread 3 of the GPU, called by process 1
+Hello from block 2, thread 0 of the GPU, called by process 1
+Hello from block 2, thread 1 of the GPU, called by process 1
+Hello from block 2, thread 2 of the GPU, called by process 1
+Hello from block 2, thread 3 of the GPU, called by process 1
+Hello from block 1, thread 0 of the GPU, called by process 1
+Hello from block 1, thread 1 of the GPU, called by process 1
+Hello from block 1, thread 2 of the GPU, called by process 1
+Hello from block 1, thread 3 of the GPU, called by process 1

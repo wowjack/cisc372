@@ -1,0 +1,17 @@
++ mpirun -np 16 ../perfect_mpi.exec 10000000
+Found a perfect number: 28
+Found a perfect number: 6
+i = 0
+Found a perfect number: 496
+Found a perfect number: 8128
+i = 1000000
+i = 2000000
+i = 3000000
+i = 4000000
+i = 5000000
+i = 6000000
+i = 7000000
+i = 8000000
+i = 9000000
+i = 10000000
+Number of perfect numbers less than or equal to 10000000: 4.  Time = 9.089836

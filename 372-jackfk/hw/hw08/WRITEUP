@@ -1,0 +1,52 @@
+To improve the runtime of the nbody program I decided to use cuda and openmp.
+
+Unfortunately, openmp doesn't offer much runtime improvement in my final program.
+Ultimately openmp is just used to speed up parts of the setup process and nothing else.
+I tried to use openmp to offload part of the computation from the gpu to the cpu when 
+simulating the movement of some of the bodies, but it just wasn't worth it.
+Having to copy the results from the cpu to the gpu and gpu to cpu every time step 
+slowed down the program more then just using the gpu.
+
+My final program works by doing a similar setup to the sequential program, however now
+only the gpu needs two arrays for current state and new state. The cpu only needs one 
+array to receive the new state from the gpu. A pretty simple 1-d grid and block structure 
+is used to distribute 1 body to each thread. The updated states are only copied back to 
+the cpu when we want to write a frame. 
+
+Running the experiments are pretty simple. The makefile is configured to run all of the 
+previously given experiments as well as my two new ones. Run "make complete_chaos.mp4" 
+or "make pulse_ring.mp4" to produce mp4 files and observe the outputs of the configurations.
+
+complete_chaos is just a stress test containing 10000 bodies with randomly generated 
+positions and masses. pulse_ring is a cool little optical illusion featuring 3775 bodies
+making up a few rings. Each of the bodies in a ring have identical elliptical orbits 
+rotated at different angles such that all of them together appear to create a ring that 
+expands and contracts. Its pretty cool.
+
+Time: 
+    complete_chaos seq(s) : 588.631126
+    complete_chaos(s)     : 8.423009
+    pulse_ring seq(s)     : 248.006264
+    pulse_ring(s)         : 9.600630
+
+Speedup:
+    complete_chaos : 69.883711
+    pulse_ring     : 25.832291
+
+Can you compute efficiency for gpu programs?
+It doesn't really make sense to me but I'll give it a shot.
+Considering each gpu warp 1 process:
+Efficiency:
+    complete_chaos : 0.223616
+    pulse_ring     : 0.218976
+
+
+In my testing I found that using the gpu was typically much better for doing simulations 
+with lots of bodies. That is where the gpu saw the greatest improvement in speedup. This 
+is reflected in my test of complete_chaos. This simulation has 10000 bodies and achieves 
+a speedup of almost 70 from the sequential version. The pulse_ring simulation only has 
+3775 bodies and therefore achieves a smaller speedup of about 26.
+
+Had I gotten more time to work on this and had less finals I would definitely have gone 
+for using mpi and cuda. You can probably achieve a pretty incredible speedup one some 
+massive simulations by distributing comptation to multiple gpus.

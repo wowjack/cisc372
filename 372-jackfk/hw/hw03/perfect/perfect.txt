@@ -1,0 +1,12 @@
+Its pretty clear that the runtime of the program decreases pretty substantially
+as we increase the number of processes and therefore the amount of processing 
+each process needs to do. Though as we increase the number of processes more and more,
+the runtime improvement per extra process decreases until the runtime actually increases 
+slightly from 30 to 35 processes. 
+
+The graph produced by running perfect on bridges is much smoother. Doubling the number of
+processes computing the perfect numbers always halved the runtime of the process, at least 
+up to 128 processes like we did. However, for the same number of processes the bridges 
+computer took nearly twice as long as the beowulf cluster, not sure why this might be.
+Either way the bridges computer is much more powerful as you are able to raise the number of
+processes working on a task without running into OS scheduling problems.

@@ -1,0 +1,22 @@
+
+	       Breakout for Class 17: Beginning OpenMP
+
+First, introduce yourself to your partners in the breakout room.
+Consider turning on your camera!
+
+Work in your personal repo, directory breakout/class17. Talk with your
+partners, share you screens, share your code.
+
+In this directory is a silly program that takes any number of command
+line arguments (strings) and prints something based on them.  Compile
+and run it and see what it does.
+
+Write a parallel version of this program using OpenMP.  Call it
+knights_omp.c.  You may use only the following OpenMP constructs:
+
+#pragma omp parallel
+omp_get_num_threads()
+omp_get_thread_num()
+
+Parallelize as much of the program as possible.  Your parallel program
+should be functionally equivalent to the original.

@@ -1,0 +1,12 @@
+New frequency (GHz): 1
+Explanation:
+
+We want power consumption to be equal so
+	numCores * (newFreq)^3 = 1 * (oldFreq)^3
+	   8     * (newFreq)^3 = 1 * (   2   )^3
+	(newFreq)^3 = 8/8
+	(newFreq)^3 = 1
+	newFreq = 1
+
+If the 8 core version is to continue running at 100W, the new frequency must be 1GHz.
+Assuming no overhead this offers a 4x performance increase.

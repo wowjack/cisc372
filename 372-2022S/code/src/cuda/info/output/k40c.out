@@ -1,0 +1,14 @@
+Device Number: 0
+  Device name: Tesla K40c
+  Compute capability: 3.5
+  Number of SMPs: 15
+  Max threads per block: 1024
+  Registers per block: 65536
+  Warp size: 32
+  Total global memory: 11996954624
+  Total constant memory: 65536
+  Shared memory per block: 49152
+  Memory Clock Rate (KHz): 3004000
+  Memory Bus Width (bits): 384
+  Peak Memory Bandwidth (GB/s): 288.384000
+

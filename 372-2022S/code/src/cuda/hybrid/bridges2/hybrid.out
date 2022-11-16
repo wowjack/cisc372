@@ -1,0 +1,31 @@
++ OMP_NUM_THREADS=2
++ mpirun -np 2 ./hybrid.exec
+Greetings from CPU thread 0/2 of process 1/2!
+Greetings from CPU thread 1/2 of process 1/2!
+Hello from block 0, thread 0 of the GPU, called by process 1
+Hello from block 0, thread 1 of the GPU, called by process 1
+Hello from block 0, thread 2 of the GPU, called by process 1
+Hello from block 0, thread 3 of the GPU, called by process 1
+Hello from block 1, thread 0 of the GPU, called by process 1
+Hello from block 1, thread 1 of the GPU, called by process 1
+Hello from block 1, thread 2 of the GPU, called by process 1
+Hello from block 1, thread 3 of the GPU, called by process 1
+Hello from block 2, thread 0 of the GPU, called by process 1
+Hello from block 2, thread 1 of the GPU, called by process 1
+Hello from block 2, thread 2 of the GPU, called by process 1
+Hello from block 2, thread 3 of the GPU, called by process 1
+Greetings from CPU thread 0/2 of process 0/2!
+Greetings from CPU thread 1/2 of process 0/2!
+Hello from block 0, thread 0 of the GPU, called by process 0
+Hello from block 0, thread 1 of the GPU, called by process 0
+Hello from block 0, thread 2 of the GPU, called by process 0
+Hello from block 0, thread 3 of the GPU, called by process 0
+Hello from block 2, thread 0 of the GPU, called by process 0
+Hello from block 2, thread 1 of the GPU, called by process 0
+Hello from block 2, thread 2 of the GPU, called by process 0
+Hello from block 2, thread 3 of the GPU, called by process 0
+Hello from block 1, thread 0 of the GPU, called by process 0
+Hello from block 1, thread 1 of the GPU, called by process 0
+Hello from block 1, thread 2 of the GPU, called by process 0
+Hello from block 1, thread 3 of the GPU, called by process 0
+Time: 0.292469

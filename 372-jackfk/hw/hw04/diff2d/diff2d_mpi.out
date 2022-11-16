@@ -1,0 +1,10 @@
++ mpirun -np 256 diff2d_mpi.exec
+diff2d_mpi: n=1000 nstep=2000000 wstep=5000 nprocs=256
+0%....................25%......................50%......................75%.....................100%
+Time (s) = 183.335397, Mean = 39.823369, Min = 35.446263
+
+Time (s) = 176.810325
+
+The time reported by the actual slurm job is always less than the 
+one reported by my program?
+Either way I'm 3 seconds off, thats got to be close enought right?

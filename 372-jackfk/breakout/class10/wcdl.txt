@@ -1,0 +1,41 @@
+Yes this program does deadlock quite often. When it operates correctly function f is called,
+in which every process except for rank 1 sends an int to rank 0, and rank 0 receives nprocs-1
+ints using MPI_ANY_SOURCE. Next every proc moves on to function g where every proc sends to rank
+0, and rank 0 accepts each of these messages while specifying the rank it is receiving from.
+eg. if nprocs = 3
+proc 1 sends to proc 0 (function f)
+proc 0 receives from proc 1 (function f)
+proc 2 sends to proc 0 (function f)
+proc 0 receives from proc 2 (function f)
+procs 0, 1, 2 move to function g
+proc 1 sends to proc 0 (function g)
+proc 0 receives from proc 1 (function g)
+proc 2 sends to proc 0 (function g)
+proc 0 receives from proc 2 (function g)
+execution complete
+
+This program sometimes deadlocks because of the non-determinism introduced by using 
+MPI_ANY_SOURCE. Sometimes a process will move on from function f to g before others.
+When this happens rank 0 will receive this message because of MPI_ANY_SOURCE despite already 
+receiving the function f messages send by this process. Now when rank 0 moves onto function g,
+it will deadlock at the receive statement because it already received both messages this 
+process send to it and a third message to break the deadlock never comes.
+eg. if nprocs = 3
+proc 1 sends to proc 0 (function f)
+proc 1 moves onto function g
+proc 0 receives from proc 1 (function f)
+proc 1 sends to proc 0 (function g)
+proc 1 finishes execution
+proc 0 receives from proc 1 (function f)
+proc 0 moves to function g
+proc 2 sends to proc 0 (function f)
+proc 0 waits for message from proc 1 (function g)
+deadlock occurrs
+
+wcdl_fix.c fixes this problem by introducing a barrier call between the function calls in main.
+This makes it so every single process must finish function f before moving onto function g.
+This eliminates the problem of function g sends being received by rank 0 in function f and
+therefore eliminates the deadlock.
+
+
+

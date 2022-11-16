@@ -1,0 +1,22 @@
+
+Write a C program that takes two arguments, n and m, on the command
+line. Both are positive integers.
+
+The program creates a 2-dimensional n x m array a of doubles, a[n][m].
+It then initializes all the boundary cells to 100.0, and all the
+interior points to 0.0. For example, if n=4 and m=5:
+
+100   100   100   100   100
+100     0     0     0   100
+100     0     0     0   100
+100   100   100   100   100
+
+The program then prints the array, as shown in the example above.
+(Except, one or 2 digits after the decimal point would be better.)
+
+
+If you have time:
+
+Write a function print2d that prints a 2d array of doubles. Figure out
+what the arguments to print2d must be, and have your program call
+print2d to print a.

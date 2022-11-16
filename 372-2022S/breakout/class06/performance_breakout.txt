@@ -1,0 +1,53 @@
+Breakout exercise for Performance.
+
+Create breakout/class06 on your personal repo.
+
+Work on any machine with MPI and gnuplot.  You can easily install
+gnuplot on your own machine using your favorite package manager.  It
+is already installed on cisc372.cis.udel.edu/grendel.  You can also
+create the timing data on one machine, and then move to a different
+machine for making the graphs, if that is more convenient.
+
+Find the MPI program pi_rect_mpi.c.  Copy it into class06 and commit
+to version control.  Make sure you can compile and run it: try with 1,
+2, and 4 procs.
+
+Working in teams, your goal is to set up a performance experiment for
+this program that will automatically create graphs of time, speedup,
+and efficiency using gnuplot.  Refer to 372-2022S/code/exp/sat_strong
+for an example.
+
+Step 1: modify the program so that it prints only nprocs, a space, and
+the time to stdout.  (All other output can be directed to stderr.)
+
+Step 2: create a new Makefile to compile the code and to generate a
+.dat file named pi_strong.dat with times for nprocs=1,2,4,6,8,10.
+(You can add more later, if you are working on a machine that supports
+more procs and you have time.)  Commit your Makefile.  You can also
+commit your .dat file to version control (yes, this is a little
+exception to the rule of "don't commit generated files").  This allows
+you to move to a different machine for using gnuplot, if you want.
+
+Step 3. create a gnuplot file (pi_strong.gnu) that will read the .dat
+file and create a PDF graph of the time vs. nprocs.  Commit it.  Add a
+rule "graphs" to the Makefile so that "make graphs" will execute
+gnuplot on this file.  Once you have generated the data and this graph
+successfully, move on to the next step.
+
+Step 4. If you have time, add to your gnuplot file commands to create
+graphs of speedup and efficiency.  Generate the graphs with "make
+graphs".
+
+Step 5. If you have even more time, repeat above for a *weak* scaling
+experiment.  Modify pi_rect to accept a command line argument
+intervals (the number of intervals).  This could be a big number
+(definitely bigger than an int).  In the weak scaling experiment, the
+number of intervals should increase linearly with nprocs.  For each
+value of nprocs, you need to do *two* runs: once for the parallel
+program, and once for the baseline (sequential version or parallel
+program with one proc).  Graph both times, as well as speedup and
+efficiency.
+
+
+** Before you leave, commit your work, including any .pdf graphs. **
+

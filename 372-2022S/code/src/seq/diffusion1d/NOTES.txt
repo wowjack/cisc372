@@ -1,0 +1,5 @@
+
+  af = ANIM_Create_graph(1, (int[]){nx, 600},
+			 (ANIM_range_t[]){{0.0, 1.0}, {-5.0, 105.0}},
+			 filename);
+

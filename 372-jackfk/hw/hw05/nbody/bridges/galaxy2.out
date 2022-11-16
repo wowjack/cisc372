@@ -1,0 +1,5 @@
++ ../galaxy2.exec 32 galaxy2.anim
+nbody: nbodies=2002 nx=1000 ny=1000 nstep=10000 wstep=5
+nbody: creating ANIM file galaxy2.anim with 2001 frames, 16040140 bytes.
+0%....................25%......................50%......................75%.....................100%
+nbody: finished.  Time = 22.869668

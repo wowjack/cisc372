@@ -1,0 +1,2 @@
++ cd /pylon5/ccz3ahp/sfsiegel
++ mpirun -np 56 /home/sfsiegel/372/code/src/mpi/mpianim/stripes1.exec

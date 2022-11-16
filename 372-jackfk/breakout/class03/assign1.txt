@@ -1,0 +1,9 @@
+1.
+	a. array of pointer to int
+	b. array of pointer to array of size n containing unsigned long
+
+2. 
+	double (*x)[];
+	
+3. 
+	sizeof(int*);

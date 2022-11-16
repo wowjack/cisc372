@@ -1,0 +1,12 @@
+
+Write a C program which takes any number of command line args, all
+numbers.  It adds the numbers and prints the result.
+
+Call the program "add.c" and the resulting executable "add".  Create a Makefile
+to compile and test it.  Put add in your PATH.
+
+Example:
+> add 3.1 5 2
+10.1
+
+

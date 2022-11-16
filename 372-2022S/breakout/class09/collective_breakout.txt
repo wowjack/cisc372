@@ -1,0 +1,32 @@
+
+Collective Communication Breakout Problems
+
+Commit your work to breakout/class09 in your personal repository.
+
+1. Write an MPI program mybcast.c that takes command line arguments
+which are integers. Process 0 reads the arguments and converts them to
+ints.  It then "broadcasts" all the ints to all processes.  Each
+process prints the ints received:
+
+  Proc X received: Y1 Y2 Y3 ...
+  
+Process 0 might have to first broadcast the number of arguments.
+
+2. Write an MPI program myscatter.c that takes command line arguments
+which are integers.  Process 0 reads the arguments and converts them
+to ints.  It then "scatters" all the ints to all processes using the
+standard block distribution scheme.  I.e., the array is broken up into
+disjoint blocks and each process receives a block.  Each process
+prints the ints received.
+
+3. Modify diff1d_mpi.c so that it prints the average and minimum
+temperature at the end.  (I.e, the average and minimum over all pixels
+in the last time step.)    Call the program diff1dv2.c
+
+4. Modify diff1d_mpi.c so that it takes a command line argument which
+is a temperature (a double), called "threshold".  It stops as soon as
+the average temperature is greater than or equal to the threshold.
+Note all processes must stop and exit the main loop at the same time.
+The program prints a message when and if this happens stating the
+iteration number (time step) and the average temperature reached.
+Call the program diff1dv3.c.

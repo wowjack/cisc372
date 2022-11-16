@@ -1,0 +1,52 @@
+
+These are breakout problems, meaning you are supposed to work on them
+in small groups.  In Zoom, you should take turns sharing your screens
+and you should be talking to each other.  Help each other overcome
+various hurdles you may encounter.
+
+
+You can do this on your own computer, assuming you have a Unix
+environment.  Otherwise ssh to cisc372.cis.udel.edu and do it there.
+
+You should have received your password for your personal 372
+Subversion repository. Do the following steps. Talk with your
+colleagues in the breakout room and share screens to discuss any
+issues.
+
+1. Change into your home directory, if you are not already there
+   (cd ~).
+
+2. Check out your personal repository, if you have not already
+   done so:
+     svn checkout --username USER svn://vsl.cis.udel.edu/cisc372/372-USER
+     replace USER with your user name
+     enter your personal repository password when prompted
+
+3. Change into the root of the local copy of your personal repository
+   (cd 372-USER).
+
+4. Create a directory named breakout and change into it.
+
+5. Create a directory named class02 and change into it.
+
+6. Create a file named foo.txt in the current directory.
+
+7. Create a directory named A in the current directory.
+
+8. Copy foo.txt to A.  Check that both copies are really there.
+
+9. Change back to the root of the local copy of your personal
+   repository.  Make sure you are in the right directory (pwd).
+
+10. Add your work to version control (svn add breakout).
+
+11. Commit your work with a short log message:
+    svn commit
+    Look at the list of files being added and make sure they are correct
+    before proceeding.  (This is a good habit and will prevent you
+    from committing a lot of junk to your repo.)
+    Add the message "Finished my first breakout" in the text editor.
+    Save the log message and exit the editor.
+
+That's all you have to do for this first breakout exercise.
+Now go to the second.

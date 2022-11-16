@@ -1,0 +1,2 @@
++ mpirun -np 4 ./pi_rect_mpi.exec
+Pi is  3.14159265358979314.  Time = 2.348300

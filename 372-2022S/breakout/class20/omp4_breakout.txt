@@ -1,0 +1,14 @@
+OpenMP Part 4 Breakout
+
+Work in directory breakout/class20 in your personal repo.
+
+This exercise is left over from class18.  See the instructions for the
+class18 breakout problems on diffusion1d and diffusion2d.  Copy the
+diffusion1d and diffusion2d directories from class18 into your class20
+directory and work there.   You may use cisc372 and/or bridges2.
+
+If you finish both of those programs, you can then try to construct
+"hybrid" versions that uses MPI and OpenMP in the same program.  Start
+with a simple block-distributed MPI version.  Run one MPI process per
+node, and then add OpenMP threads within a node to accelerate the
+update loop.

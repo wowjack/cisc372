@@ -1,0 +1,20 @@
+
+Pthread Barrier Breakout Exercise
+
+The usual: introduce yourself, work with your neighbors in breakout/class16.
+
+Discuss this problem first before starting to hack.
+
+In this exercise, you want to create a parallel version of diffuse1d.c
+using Pthreads.  Call it diffuse1d_pthread.c.
+
+Instead of creating a new team of threads at each time step, you will
+create the threads once. Each thread will loop over the time
+steps. (This is a bit like the MPI version.)  However, in order to
+make this work, there is going to have to be some synchronization,
+probably using a barrier. Discuss why barriers might be needed, and
+come up with an outline of the new code showing where the barriers
+should go. Then start to code it.
+
+You can use any of the barriers in pthread/barrier. A Makefile is
+provided which uses one of them.

@@ -1,0 +1,28 @@
+Work in directory breakout/class04.
+
+Write a C program "a2d.c" that takes two arguments, n and m, on the
+command line. Both are positive integers.
+
+1. Write a function "create" which creates a 2-dimensional n x m array
+of doubles, allocating memory on the heap:
+
+double ** create(int n, int m);
+
+2. Write a function "init" which initializes a 2d array of doubles,
+setting all boundary cells to 100.0, and all the interior points to
+0.0. For example, if n=4 and m=5:
+
+100   100   100   100   100
+100     0     0     0   100
+100     0     0     0   100
+100   100   100   100   100
+
+(Except, one or 2 digits after the decimal point would be better.) 
+Figure out what the arguments to init should be.
+
+3. Write a function "print" that prints a 2d array of doubles.
+
+4. Write a function "destroy" that deallocates a 2d array of doubles.
+
+5. The main function should read the command line arguments, then
+call create, init, print, and destroy.

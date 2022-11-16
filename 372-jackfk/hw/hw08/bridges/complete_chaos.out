@@ -1,0 +1,9 @@
++ cd ..
++ make complete_chaos.exec
+make: 'complete_chaos.exec' is up to date.
++ cd bridges
++ ../complete_chaos.exec complete_chaos.anim
+nbody: nbodies=10000 nx=1000 ny=1000 nstep=1000 wstep=1
+nbody: creating ANIM file complete_chaos.anim with 1001 frames, 40120120 bytes.
+0%....................25%......................50%......................75%.....................100%
+nbody: finished.  Time = 8.423009

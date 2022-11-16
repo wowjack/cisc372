@@ -1,0 +1,40 @@
+   Breakout for Class 19: Measuring performance of OpenMP loop strategies
+
+First, introduce yourself to your partners in the breakout room.
+Consider turning on your camera!
+
+Work in your personal repo, directory breakout/class19. Talk with your
+partners. Elect one person to be the coder. The coder will share the
+screen; everyone else will tell the coder what to type and do. The
+coder can distribute the code you wrote to everyone in the group
+during or at end of class.
+
+Take a look at matmul.c. This is a simple matrix multiplication
+program. Compile with
+
+cc -Wall -pedantic -DDEBUG matmul.c
+
+The DEBUG flag turns on the printing. The program takes 3 command line
+args (read it to see what they mean). Run it on some small values and
+make sure you understand what it does.
+
+Now use OpenMP to make this program faster. Measure the performance
+precisely by inserting timing measurements just before and after the
+main computational loop. You don't want to time the initialization
+part, or any printing. Print the time at the end. Use OpenMP's wall
+time command for this.
+
+Experiment with different strategies. There is a triply nested loop,
+so you can try parallelizing the outer loop, or the middle loop, or
+the inner-most loop. You can try "collapsing" some or all of these
+loops. You can try static scheduling, dynamic scheduling, and guided
+scheduling. You can try different chunk sizes. Keep notes (in a plain
+text file README.txt) of the performance of each attempt.
+
+When you do your timings, compile without the DEBUG flag --- you don't
+want to print huge matrices to your screen. Find "good" values for
+L,M,N that let the program run for a reasonable but not trivial amount
+of time. Use a good machine, like Bridges2 with one full RM node.
+Beowulf (cisc372) might be OK too.
+
+Commit your *best* performing version and the README.txt file.

@@ -1,0 +1,38 @@
+
+First, introduce yourself to your partners for this class (the people
+sitting on your side of the table).  Work together for the hour.
+
+Work in directory breakout/class05. Commit all your work by end of
+class.
+
+-----
+
+1. Write a C/MPI program in which each process performs the following
+actions in order:
+
+ First:  print "i: hi\n" 10 times, where i is the rank.  fflush after each print.
+ Then:   print "i: bye\n" 10 times, fflushing after each print.
+
+Note: the above describes what one process should do.  Each process
+does this same thing (except they each have their own rank).  There is
+no coordination between processes.
+
+Call the program hi10.c.  Compile and run the program with different
+process counts.  Run it with 2 procs over and over again.  Do you ever
+see anything strange?
+
+Note: you can use your own machine if you've installed MPI.  You can also
+use cisc372.cis.udel.edu by using srun to run the program.
+
+-----
+
+2. Modify hi10.c so that all the hi lines for all processes are
+printed before any of the bye lines are printed. What function do you
+need?
+
+-----
+
+3. Write a C/MPI program addints.c that adds the integer 1..10^9. Aim
+for load balance for any process count. Be sure to use an integer type
+that is big enough to hold the result!
+

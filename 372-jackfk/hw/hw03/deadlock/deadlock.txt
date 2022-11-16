@@ -1,0 +1,21 @@
+(1) B
+    In every proc, the send instruction comes before the recv instruction.
+    If the send instruction waits to synchronize for its matching recv instruction, it will deadlock.
+    This probably wont happen though because we're just sending one int.
+
+(2) B
+    Same deal as question 1.
+    For procs 0 & 1, the send instruction comes before the recv instruction.
+    If the send instruction waits to synchronize for its matching recv instruction, it will deadlock.
+    This probably wont happen though because we're just sending one int.
+
+(3) C
+    Both procs 0 & 1 wait for a message from eachother before they send a message themselves.
+    Each proc will forever wait for this message and will deadlock.
+
+(4) A
+    Each proc up to but not including nprocs-1 will send to rank+1
+    Even if these send instructions wait to synchronize, proc nprocs-1 does not do any send.
+    proc nprocs-2's send will synchronize with proc nprocs-1 recv instruction.
+    Then proc nprocs-2 will recv and synchronize with nprocs-3 send instruction.
+    This will continue down the chain until proc 1 recvs from proc 0, no deadlock.

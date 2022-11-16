@@ -1,0 +1,36 @@
+
+1. Create a simple Makefile for compiling hi.c.
+
+2. Delete hi.
+
+3. Type make.  This should re-create hi.
+
+4. Type hi and make sure it still works.
+
+5. Type make again.    Nothing to do!
+
+6. Edit hi.c by changing the "Hi" to "Bye".
+
+7. Type make again.  It should re-build.
+
+8. Type hi again.  You should see the new message.
+
+9. Type make again.  Nothing to do.
+
+10. Commit Makefile to version control.
+
+11. Instruct Subversion to ignore hi and any file with name
+    ending in "~":
+
+    svn propedit svn:ignore .
+    using the editor, put these two lines in the file:
+hi
+*~
+    save and exit
+
+12. svn commit once more
+
+13. Type svn status.  Are the files ignored?
+
+That's it for today.
+Do you have any questions?

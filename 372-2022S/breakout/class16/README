@@ -1,0 +1,8 @@
+
+The sequential program diffuse1d.c is given.
+diffuse1d_pthread.c is the same, but you need to edit it to:
+  - use Pthreads
+  - split up the update work
+  - use a barrier in the right place
+
+Refer to barriers directory for examples.

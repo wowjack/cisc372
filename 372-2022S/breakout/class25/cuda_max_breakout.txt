@@ -1,0 +1,25 @@
+		   Breakout for Class 25: CUDA MAX
+
+Work in breakout/class25.
+
+Read this out loud with the people in your group and discuss it.
+
+Write a CUDA-C program to compute the maximum of sin(i) for i in 0
+.. N-1.  Use double precision floating point numbers.  Call your
+program max.cu.  Use either Beowulf or Bridges.  (Since there aren't
+that many GPUs on Beowulf, you may find faster turnaround on Bridges.)
+
+Your program should print out the answer to 20 decimal places, as well
+as the total time in seconds.
+
+Your goal is to find the answer for N=2^30. However it is recommended
+you start with a much smaller value of N (but still a power of 2) as
+you debug your code.
+
+Discuss a general strategy with your partners before you start to
+code.  There may be some examples in the code repo you can use as a
+guide.
+
+If time remains: print out not only the answer, but also a value of i
+at which the maximum is achieved.
+

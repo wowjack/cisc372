@@ -1,0 +1,8 @@
+
+Shared memory per block (bytes):
+
+49152 bytes = 2^14 * 3 bytes = 2^11 * 3 doubles = 2048*3 doubles = 6144 doubles.
+
+At 1024 threads per block, that's 6 doubles per thread.
+At 512 threads per block, 12 doubles per thread.
+At 256 threads per block, 24 doubles per thread.

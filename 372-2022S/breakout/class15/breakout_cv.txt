@@ -1,0 +1,154 @@
+              Condition Variable Breakout Exercises
+
+Work in your personal repo, directory breakout/class15. Work with your
+neighbors.
+
+First, study the simple banking example,
+code/src/pthread/bank/bank1.c. Make sure you can compile and execute
+the program and that you understand how it is using the Pthreads
+synchronization primitives. Ask questions if there is something you
+don't understand.
+
+-----
+
+	      Exercise 1: A single wait synchronization
+
+Now look at the program cv0.c This is the simplest possible program
+requiring some "wait" synchronization. There are two threads and a
+shared variable s, initially 0. Thread 1 waits for s to change to 1.
+Thread 2 changes s to 1. There are some print statements. Compile and
+execute a few times. The program is not correct and you may see that
+in some of the output:
+
+siegel@monk cv % ./a.out
+Thread 1: waiting for signal.
+	Thread 2: sending signal.
+Thread 1: signal received: s=1
+
+siegel@monk cv % ./a.out
+Thread 1: waiting for signal.
+Thread 1: signal received: s=0
+	Thread 2: sending signal.
+siegel@monk cv % 
+
+
+Use mutexes and condition variables to fix the program. Keep it
+simple: there is a simple basic pattern for waiting for a condition to
+become true: use it. There is a simple way to signal that a thread may
+want to "wake up" and check its condition: use that. The program
+should compile and always execute correctly.
+
+----
+
+	      Exercise 2: Multiple wait synchronizations
+
+Once you have that working, take a look at cv1.c. It is similar but
+each thread loops N times. Also the signals go both ways. The comments
+indicate where waiting should occur. Run it and you will almost
+certainly see incorrect output. Now add the necessary synchronization.
+The correct output will look something like this:
+
+siegel@monk cv % cc cv1_solution.c 
+siegel@monk cv % ./a.out
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: waiting for signal.
+Thread 1: signal received: s1=1.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=1.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=2.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=2.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=3.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=3.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=4.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=4.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=5.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=5.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=6.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=6.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=7.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=7.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=8.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=8.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=9.
+Thread 1: sending signal.
+Thread 1: waiting for signal.
+	Thread 2: signal received: s2=9.
+	Thread 2: sending signal.
+	Thread 2: waiting for signal.
+Thread 1: signal received: s1=10.
+Thread 1: sending signal.
+Thread 1: terminating.
+	Thread 2: signal received: s2=10.
+	Thread 2: terminating.
+
+
+
+-----
+
+			  Exercise 3: Flags
+
+Only if you finish the other two..
+
+Program prod_cons/spscsd.c is a "single producer, single consumer,
+single datum" instance of the producer-consumer pattern. There is a
+single "buffer", the variable val. Producers produce data and insert
+it into the buffer. Consumers take data from the buffer and consume
+it. This is a very common concurrency pattern that arises over and
+over again in real applications.
+
+The goal is to design a solution so that a producer can only insert
+when the buffer is not full, a consumer can only remove when the
+buffer is not empty, and there are no data races or deadlocks.
+Furthermore you want to allow as much concurrency as is possible ---
+no one should ever block unless it is essential to achieve one of the
+goals.
+
+There are many ways to solve the problem. In this example code, two
+concurrency flags are used. If f1 is raised then it is safe to
+produce; if f2 is raised then it is safe to consume. Make sure you can
+compile and run the program. You need to link it with flag.c for the
+concurrency flag implementation:
+
+cc -I/path/to/code/include/dir spscsd.c flag.c
+
+Write a version of this program for multiple producers, multiple
+consumers, and a single datum. The program should take two command
+line args: the number of producers and the number of consumers. Make
+the producer and consumer print its ID number when it
+produces/consumes. Use whatever concurrency constructs you need to
+ensure the properties described above. Since there are many ways to
+solve the problem, experiment with different solutions.
+
+Call your program mpmcsd.c and commit it.

@@ -1,0 +1,15 @@
++ ./info.exec
+Device Number: 0
+  Device name: Tesla P100-PCIE-16GB
+  Compute capability: 6.0
+  Number of SMPs: 56
+  Max threads per block: 1024
+  Registers per block: 65536
+  Warp size: 32
+  Total global memory: 17071734784
+  Total constant memory: 65536
+  Shared memory per block: 49152
+  Memory Clock Rate (KHz): 715000
+  Memory Bus Width (bits): 4096
+  Peak Memory Bandwidth (GB/s): 732.160000
+

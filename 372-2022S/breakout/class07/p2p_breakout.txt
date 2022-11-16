@@ -1,0 +1,68 @@
+
+Work in your personal repo, directory breakout/class07. Talk with your
+partners, share you screens, share your code.
+
+Here are 6 little MPI exercises. Do as many as you can. You don't have
+to do them in order.
+
+1. Write an MPI program p2p1.c in which process 1 sends a message to
+process 3. The message is the single int 497. Process 3 receives the
+message and prints: "Received from proc 3: X", where X is the int
+received. Other processes do nothing.
+
+2. Write an MPI program p2p2.c which is same as above, except the
+message sent is the string "Greetings to proc 3 from proc 1!".
+
+3. Write an MPI program p2p3.c in which every process creates a random
+int. (Note: you will need to set the random seed differently on each
+process, else they will all generate the same sequence of "random"
+ints. That's how a pseudo-random number generator works. Man srand()
+and rand().) Every process other than process 0 sends its int to
+process 0. Process 0 prints out these ints in order, starting with its
+own, as follows:
+
+  Process 0 has: X0
+  Process 1 has: X1
+  ...
+  Process np-1 has: Xnp-1
+
+where X0, X1, ..., Xnp-1 are the actual ints. Note that process 0 is
+the only process that prints. This is the only way to guarantee the
+output is correct.
+
+4. Write an MPI program p2p4.c which is same as above, except
+now every process generates 5 random ints and sends all 5 to
+process 0 in a single send operation.  The output will look like
+
+  Process 0 has: X00 X01 X02 X03 X04
+  Process 1 has: X10 X11 X12 X13 X14
+  ...
+
+where the Xij are the actual random ints.
+
+5. Write an MPI program "args.c" in which proc 0 reads the command
+line args, both argc and argv. Proc 0 first sends to all other procs
+the number of args (i.e., argc - 1). Then it sends the args themselves
+to all other procs, one at a time. All procs of positive rank receive
+these messages, then print a message like this:
+
+Proc 7: the 3 args are: arg1 arg2 arg3
+
+You can assume 256 is a safe upper bound on the length of any one
+command line argument. Note that positive rank procs are not allowed
+to look at argc and argv in this exercise! (In general, you are only
+guaranteed that process 0 can access the command line arguments,
+though many MPI implementations will allow other processes to also
+access those arguments.)
+
+6. Copy the directory 372-2022S/code/src/mpi/mpianim into your class07
+directory. Make sure you can compile and run these example programs
+with "make" and "make test". You may need to edit the ROOT value in
+the Makefile so that it points to the "code" directory in 372-2022S.
+
+The programs use the mpianim library, an MPI version of the ANIM
+library. Study stripes1.c and look at the documentation in
+372-2022S/code/include/mpianim.h to understand the API. Now, make some
+creative change to stripes1.c to get it to produce a different
+picture. Call your program my_stripes.c. Edit the Makefile so that it
+will generate my_stripes.mp4. Feel free to go wild.

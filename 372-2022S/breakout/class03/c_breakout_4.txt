@@ -1,0 +1,23 @@
+
+Write a C program permute that takes a single command line argument,
+which is a word. Say the word consists of n characters. The program
+creates a 2d-array of dimensions n! x n (i.e., there are n factorial
+rows, and n columns) of char. It then fills that array with all n!
+permutations of the letters of the word. Finally, it prints the n!
+permuted words.
+
+Example:
+> permute abc
+abc
+acb
+bac
+bca
+cab
+cba
+
+
+Hint: here is a recursive approach: you get all permutations of "abc"
+by first taking a and appending all permutations of "bc", then take b
+and append all permutations of "ac", then take c and append all
+permutations of "ab". Write a recursive function that takes all the
+appropriate inputs and fills in the array in that way.

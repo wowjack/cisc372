@@ -1,0 +1,26 @@
+p1.c - Incorrect. It prints tid then x then y. y is private
+    variables within the parallel part though so they need to be initialized
+    within the parallel part, but this doesn't happen. Therefore there is undefined
+    behavior.
+
+p2.c - Incorrect. It prints tid then x then y. y is a private variable which means
+    it needs to be initialized within the parallel part, but this doesn't happen.
+    Therefore there is undefined behavior.
+
+p3.c - Incorrect. It prints tid then x then y. x is private within the parallel part
+    and it is initialized within the parallel part so we dont run into any problems
+    there. y is shared but its value is being set to tid by every thread. This causes
+    a data race meaning the value of y is undefined.
+
+p4.c - Correct. within the parallel part x is private, but beacuse the firstprivate
+    clause is used, it is automatically initialized to whatever variable x is in the 
+    current scope in the main thread. Also, even though y is shared, only thread with
+    ID 1 writes to it so there is no write-write data race. No thread reads y within 
+    the parallel part so there is also no read-write data race. 
+
+p5.c - Correct. a is shared but no thread ever writes to variable a, only the array 
+    referenced by a. In the for loop, only one iteration is ever executed once by any
+    thread. So, there is no write-write data race when a thread writes to a[i]. Also,
+    there is no invalid syntax in the loop's signature.
+
+p6.c - 

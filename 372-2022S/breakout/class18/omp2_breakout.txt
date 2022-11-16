@@ -1,0 +1,51 @@
+	    Breakout Exercise for Class 18: OpenMP, part 2
+
+First, introduce yourself to your partners in the breakout room.
+Consider turning on your camera!
+
+Work in your personal repo, directory breakout/class18. Talk with your
+partners, share you screens, share your code.
+
+Start by copying over the material in the class repo's breakout/class18
+to your personal repo's breakout/class18.   (cp -r ...)
+
+----------------------------------------------------
+
+The first part of this exercise uses 10 little programs in directory
+ex. Start with p1.c.   Choose one person to share the screen.   The
+screen person opens the file in their favorite text editor.  Discuss
+the program with your colleagues and try to answer the following:
+
+   - Is the program correct or does it have some undefined behavior?
+     If the latter, explain.
+
+   - If the program is correct, what will the output be?
+
+Write your answer in a plain text file named answers.txt in directory
+ex.   The exact format is not important.
+
+Now compile and run the program, perhaps multiple times.  Use all the
+compiler warnings and flags you want.   Discuss.   Does anything change
+your mind?  If so, adjust your answer.
+
+Now rotate to a new person in your group and have them share their
+screen. Repeat for p2.c, adding your answers to answers.txt. And so
+on, for p3.c, ..., p10.c.
+
+Commit your answers.txt.
+
+----------------------------------------------------
+
+If you finish that, go into directory diffusion1d. This is a simple
+1d-diffusion animation. You can use the usual "make" rules to compile,
+run, and test the program. Now the filename says "omp", but it is
+really just the sequential version. Your job is to edit it, adding
+openmp primitives appropriately. "make test" will tell you if your
+changes were correct. Then see how much speedup you can get on the
+"big" problem with "make big.anim".
+
+Commit your modifications.
+
+----------------------------------------------------
+
+Ditto, with diffusion2d.  Even more challenging.

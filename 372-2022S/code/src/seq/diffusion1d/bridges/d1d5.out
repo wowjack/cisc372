@@ -1,0 +1,5 @@
++ ./diffusion1d.exec 320000 0.15 1000000 10000 big.anim
+diffusion1d: nx=320000 k=0.150000 nstep=1000000 wstep=10000.
+diffusion1d: creating ANIM file big.anim with 101 frames, 32320100 bytes.
+0%....................25%......................50%......................75%.....................100%
+diffusion1d: finished.  Time = 321.490022

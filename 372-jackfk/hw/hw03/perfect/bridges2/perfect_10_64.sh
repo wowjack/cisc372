@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#SBATCH -p RM-shared
+#SBATCH -t 00:05:00
+#SBATCH -N 1
+#SBATCH --ntasks-per-node 64
+set -x
+
+mpirun -np $SLURM_NTASKS ../perfect_mpi.exec 10000000

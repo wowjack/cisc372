@@ -1,0 +1,11 @@
++ mpirun -np 10 ./args.exec a b c
+Proc 0: argc=4, a b c 
+Proc 1: argc=4, a b c 
+Proc 2: argc=4, a b c 
+Proc 3: argc=4, a b c 
+Proc 4: argc=4, a b c 
+Proc 5: argc=4, a b c 
+Proc 6: argc=4, a b c 
+Proc 7: argc=4, a b c 
+Proc 8: argc=4, a b c 
+Proc 9: argc=4, a b c 

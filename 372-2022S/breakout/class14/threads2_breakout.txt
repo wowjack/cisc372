@@ -1,0 +1,17 @@
+Create directory breakout/class14.  Get as far as you can on the
+following exercises:
+
+1. Write a Pthread program that deadlocks.  Call it deadlock.c.
+Run it, and watch it deadlock.
+
+2. Write a function that uses threads to compute the maximum value in
+an array of doubles, and stores the result in global variable s. Use
+standard block distribution to distribute the work among threads.
+Put this function in a file named max.c.
+
+3. Now test it as follows: add a main function which reads numbers
+from the command line. The first number is the number of threads to
+use, the remaining numbers are the elements of the array. The main
+thread prints the result at the end.
+
+4. Add a Makefile to compile the programs above and run tests.

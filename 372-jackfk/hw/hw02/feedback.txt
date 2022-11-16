@@ -1,0 +1,16 @@
+Problem 1:
+16/16
+
+Problem 2:
++4: Extra Credit
+28/24
+
+Problem 3:
+-1: setHeatCells should set to m, not 100.
+-1: main should have ANIM_Write_frame(af, *u) rather than (double *)u.
+-6: Video output does not work.
+22/30
+
+-10% for late submission
+Total:
+59/70

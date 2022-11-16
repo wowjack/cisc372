@@ -1,0 +1,22 @@
+
+Do as much of this as you can in the time remaining:
+
+Write a program that defines a structured type for a playing Card. A
+Card has a "value" (1..13) and a "suit" (diamonds, clubs, hearts, or
+spades). The suit should be defined as an enum.
+
+Write a function "print_card" which prints a card like this: "Ace of
+spades", "Two of hearts", "King of diamonds", etc. Note that Ace=1,
+Jack=11, Queen=12, King=13.
+
+Write a function "make_deck" which creates an array of cards of length
+52, and fills it in with the 52 different possible cards.
+
+Write a function "print_deck" which prints the deck, in order.
+
+Write a function "destroy_deck" which destroys a deck.
+
+Write a function "shuffle" which shuffles the deck randomly.
+
+Write a main function which creates a deck, prints it, shuffles it,
+prints it again, and destroys it.

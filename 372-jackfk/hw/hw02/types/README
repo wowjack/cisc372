@@ -1,0 +1,8 @@
+(a) array of pointer to int
+(b) pointer to array of ints
+(c) pointer to pointer to double
+(d) array of pointer to array of size n containing unsigned long ints
+(e) sizeof(int)
+(f) sizeof(int*)
+(g) sizeof(int*)
+(h) 5*sizeof(int)

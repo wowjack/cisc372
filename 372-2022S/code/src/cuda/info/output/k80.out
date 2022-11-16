@@ -1,0 +1,15 @@
++ ./info.exec
+Device Number: 0
+  Device name: Tesla K80
+  Compute capability: 3.7
+  Number of SMPs: 13
+  Max threads per block: 1024
+  Registers per block: 65536
+  Warp size: 32
+  Total global memory: 11996954624
+  Total constant memory: 65536
+  Shared memory per block: 49152
+  Memory Clock Rate (KHz): 2505000
+  Memory Bus Width (bits): 384
+  Peak Memory Bandwidth (GB/s): 240.480000
+

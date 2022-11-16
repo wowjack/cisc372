@@ -1,0 +1,4 @@
++ ../mandelbrot.exec 1200 400 mb.anim
+mandelbrot: creating ANIM file mb.anim with 400 frames, 1200x1200 pixels, 576000100 bytes.
+0%....................25%......................50%......................75%.....................100%
+mandelbrot: finished.  Time = 5.660904
